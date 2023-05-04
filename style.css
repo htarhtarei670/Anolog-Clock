@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;0,900;1,200;1,400&family=Roboto:ital,wght@0,100;0,300;1,100;1,300&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+ :root {
+    /* --background: #0f172a; */
+    --background: #e5e7eb;
+    --clock-color: #f5f5f5;
+    --white: #ffffff;
+    --black: #1d1d20;
+    --blue: #1d4ed8;
+    --thems-btn-shadow: rgba(136, 126, 126, 0.35);
+    --mute: #4b5563;
+    --themes-icon-color: #1a1a1c;
+}
+
+body {
+    background-color: var(--background);
+    height: 100vh;
+}
+
+body.dark {
+    --background: #0f172a;
+    --clock-color: #111827;
+    --white: #1d1d20;
+    --black: #ffffff;
+    --blue: #1d4ed8;
+    --thems-btn-shadow: rgba(24, 25, 41, 0.3);
+    --themes-icon-color: #ffffff;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.container .clock {
+    width: 300px;
+    height: 300px;
+    background: var(--clock-color);
+    border-radius: 50%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    position: relative;
+}
+
+.clock label {
+    position: absolute;
+    inset: 20px;
+    transform: rotate(calc(var(--i) *(360deg/12)));
+    text-align: center;
+}
+
+.clock label span {
+    transform: rotate(calc(var(--i) *(360deg/12)));
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--black);
+}
+
+
+/*clock hand  */
+
+.clock-hands {
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.clock-hands::before {
+    content: '';
+    position: absolute;
+    background-color: var(--black);
+    border-radius: 50%;
+    border: 5px solid var(--blue);
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+}
+
+.clock-hands .hand {
+    position: absolute;
+    height: 100px;
+    width: 4px;
+    background: var(--blue);
+    bottom: 4px;
+    border-radius: 5px;
+    transform-origin: bottom;
+    display: flex;
+    justify-content: center;
+}
+
+.hand.min-hand {
+    background: var(--black);
+    height: 90px;
+    width: 5px;
+}
+
+.hand.hour-hand {
+    background: var(--black);
+    height: 75px;
+    width: 6px;
+}
+
+
+/* theme */
+
+.container .themes button {
+    background-color: var(--white);
+    outline: none;
+    padding: 7px 15px;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    margin-left: 190px;
+    box-shadow: var(--thems-btn-shadow) 0px -50px 30px -28px inset;
+}
+
+button .icon {
+    font-size: 1.5em;
+    color: var(--themes-icon-color);
+}
+
+.date-time {
+    margin-top: 35px;
+    width: 160px;
+    text-align: center;
+}
+
+.date-time h4 {
+    font-size: 3em;
+    font-weight: 400;
+    color: var(--black);
+}
+
+.date-time h4 sup {
+    font-size: .8rem;
+    position: absolute;
+    padding-left: 8px;
+    color: var(--mute);
+}
+
+.date-time span {
+    color: var(--mute);
+    word-spacing: .2rem;
+    font-size: 1rem;
+}
+
+
+/* footer */
+
+.footer {
+    text-align: center;
+    font-size: .7em;
+    color: var(--mute);
+    word-spacing: .3rem;
+    margin-top: 25px;
+    margin-left: 10px;
+}
